@@ -79,7 +79,7 @@ npm run dev
     "updatedAt": "2026-09-23T10:30:00+08:00"
   },
   "workstreams": [
-    { "id": "github", "name": "GitHub公开推送", "status": "blocked", "note": "一句话" }
+    { "id": "github", "name": "GitHub公开推送", "status": "done", "note": "一句话" }
   ],
   "blockers": [
     {
@@ -103,11 +103,11 @@ npm run dev
 - `schemaVersion` 保持 `1`
 - `id` 用小写字母、数字、连字符，且在同一数组内不重复
 - `links[].href` 以 `http://` 或 `https://` 开头时，页面提供「打开」；否则当作仓库路径，只显示文字和「复制」
-- 平台文档路径（如 `docs/requirements.md`、`docs/architecture.md`）写在链接里即可，不必把正文拷进本仓库
-- Cloud Agent 地址目前是占位：`https://cursor.com/agents/placeholder`，有真实链接再替换
+- 平台文档若只是路径，写在 `links` 里即可，不必把正文拷进本仓库
+- 外链用完整 `https://` 地址。平台仓库：<https://github.com/lijiaaaaa-bot/mushroom-farm-platform>
 
-## 当前种子状态
+## 当前状态
 
-- 招标样本、计划/需求文档、架构硬墙、脚手架 MVP：已完成
-- GitHub 公开推送：阻塞（缺 `GH_TOKEN` 或尚未创建 public repo）
-- 大屏 UI、MQTT 联调：进行中，都还没进入实现
+- 已完成：招标样本、计划/需求、架构硬墙、脚手架 + HTTP 接入 + 告警冒烟、GitHub 公开仓库、STATUS.md 与 Issues #1–#4、工作日摘要与 PR 监听
+- 进行中：MQTT 竖切（#1）、管理端暗色 UI（#3）、大屏壳（#2）
+- 硬阻塞：无。不要再写 GH_TOKEN / 公开仓库未创建

@@ -4,10 +4,10 @@
     "slug": "mushroom-farm-platform",
     "name": "食用菌种植管理平台",
     "console": "蘑菇项目指挥台",
-    "phase": "Day-1",
-    "headline": "文档和脚手架已经落地，卡在 GitHub 公开推送。",
-    "next": "准备 GH_TOKEN，或先创建 public repo，再推送平台仓库。",
-    "updatedAt": "2026-09-23T10:30:00+08:00"
+    "phase": "仓库已公开",
+    "headline": "GitHub 公开仓库已上线，没有硬阻塞。正在做 MQTT 竖切和两块 UI。",
+    "next": "MQTT 竖切（#1，农场仓库 CloudAgent）、管理端暗色 UI（#3）、大屏壳（#2）。",
+    "updatedAt": "2026-09-23T10:50:00+08:00"
   },
   "workstreams": [
     {
@@ -32,40 +32,76 @@
       "id": "scaffold",
       "name": "脚手架MVP",
       "status": "done",
-      "note": "本地骨架可运行，本指挥台是当前入口。"
+      "note": "脚手架、HTTP 接入和告警冒烟都已通过。"
     },
     {
       "id": "github",
       "name": "GitHub公开推送",
-      "status": "blocked",
-      "note": "缺 GH_TOKEN，公开仓库还没建。"
+      "status": "done",
+      "note": "公开仓库已上线：lijiaaaaa-bot/mushroom-farm-platform。"
     },
     {
-      "id": "dashboard-ui",
-      "name": "大屏UI",
-      "status": "active",
-      "note": "页面未开工，信息架构还在清单里。"
+      "id": "status-board",
+      "name": "STATUS 与 Issues",
+      "status": "done",
+      "note": "STATUS.md 已在仓库，Issues #1–#4 已建板。"
+    },
+    {
+      "id": "routines",
+      "name": "摘要与 PR 监听",
+      "status": "done",
+      "note": "工作日摘要和 PR 监听例程已接上。"
     },
     {
       "id": "mqtt",
       "name": "MQTT联调",
       "status": "active",
-      "note": "Topic 已起草，还没有 broker 环境。"
-    }
-  ],
-  "blockers": [
+      "note": "竖切进行中（issue #1），由农场仓库的 CloudAgent 推进。"
+    },
     {
-      "id": "github-push",
-      "title": "GitHub 推送需要 GH_TOKEN / 公开仓库",
-      "detail": "公开推送停在这一步。把 GH_TOKEN 配到环境，或先创建 public repo，再推。不要把令牌写进仓库。",
-      "since": "2026-09-23"
+      "id": "admin-ui",
+      "name": "管理端暗色UI",
+      "status": "active",
+      "note": "issue #3，暗色管理端还在打磨。"
+    },
+    {
+      "id": "dashboard-ui",
+      "name": "大屏UI",
+      "status": "active",
+      "note": "issue #2，指挥大屏壳还没合完。"
     }
   ],
+  "blockers": [],
   "links": [
     {
-      "label": "状态更新说明",
-      "href": "README.md",
-      "note": "本仓库。agent 改进度前先看这一节。"
+      "label": "平台公开仓库",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform",
+      "note": "已公开。脚手架、HTTP 接入、告警冒烟都在这里。"
+    },
+    {
+      "label": "STATUS.md",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/blob/main/STATUS.md",
+      "note": "平台仓库里的状态说明。"
+    },
+    {
+      "label": "Issues 看板",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues",
+      "note": "#1–#4 已建。#1 MQTT，#2 大屏壳，#3 管理端，#4 本指挥台。"
+    },
+    {
+      "label": "MQTT 竖切 #1",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues/1",
+      "note": "进行中。农场仓库上的 CloudAgent 在做这一刀。"
+    },
+    {
+      "label": "大屏壳 #2",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues/2",
+      "note": "待开。指挥大屏壳，要能演示。"
+    },
+    {
+      "label": "管理端暗色 UI #3",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues/3",
+      "note": "待开。管理端暗色界面打磨。"
     },
     {
       "label": "进度真源",
@@ -73,19 +109,9 @@
       "note": "本仓库。只改这个文件，然后重新读取。"
     },
     {
-      "label": "计划 / 需求文档",
-      "href": "docs/requirements.md",
-      "note": "平台仓库路径。文档已完成，这里只作入口。"
-    },
-    {
-      "label": "架构硬墙",
-      "href": "docs/architecture.md",
-      "note": "平台仓库路径。分层和禁止项以该文档为准。"
-    },
-    {
-      "label": "Cloud Agent",
-      "href": "https://cursor.com/agents/placeholder",
-      "note": "占位链接。换成这次构建任务的 agent 地址。"
+      "label": "状态更新说明",
+      "href": "README.md",
+      "note": "本仓库。agent 改进度前先看这一节。"
     }
   ],
   "checklist": [
@@ -128,19 +154,19 @@
     {
       "id": "d1-mqtt-names",
       "day": "Day-1",
-      "text": "MQTT topic 命名写成文字，本阶段不联机",
-      "done": true
+      "text": "MQTT 接入竖切（issue #1）尚未收口",
+      "done": false
     },
     {
       "id": "d1-public-repo",
       "day": "Day-1",
-      "text": "公开 GitHub 仓库已建立并可推送",
-      "done": false
+      "text": "公开 GitHub 仓库已上线并可推送",
+      "done": true
     },
     {
       "id": "d1-screen-ia",
       "day": "Day-1",
-      "text": "大屏信息架构四块：总览、菇房、批次、告警",
+      "text": "大屏壳（issue #2）尚未完成",
       "done": false
     }
   ]
