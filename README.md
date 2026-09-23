@@ -32,11 +32,11 @@ npm run dev
 
 ## 页面上有什么
 
-- 项目抬头：`mushroom-farm-platform` 与「食用菌种植管理平台」
-- 七条工作流：招标样本、计划/需求文档、架构硬墙、脚手架MVP、GitHub公开推送、大屏UI、MQTT联调
-- 当前阻塞
-- 快速链接（仓库路径或外链）
-- Day-0 / Day-1 架构清单
+- 项目抬头：`mushroom-farm-platform` 与「食用菌种植管理平台」（文案来自 `project.headline` / `project.next`）
+- 工作流：条数和状态都来自 `workstreams`，不要在 README 里冻结一份旧名单
+- 当前阻塞（`blockers`，没有则为空）
+- 快速链接（`links`：仓库路径或外链）
+- Day-0 / Day-1 架构清单（`checklist`）
 
 状态全部来自 `public/status.json`。组件只负责展示。
 
@@ -63,6 +63,8 @@ npm run dev
 | `blocked` | 阻塞 |
 
 页面若读失败，会直接写出字段错误（缺字段、状态写错、`id` 重复）。修 JSON，不要去改解析器来迁就坏数据。
+
+字段名以 `src/data/types.ts` 和 `parseProjectStatus`（`src/data/project.ts`）为准。工作流数组叫 `workstreams`，抬头三句是 `project.headline`、`project.next`、`project.updatedAt`。
 
 ### 字段
 
@@ -108,6 +110,10 @@ npm run dev
 
 ## 当前状态
 
-- 已完成：招标样本、计划/需求、架构硬墙、脚手架 + HTTP 接入 + 告警冒烟、GitHub 公开仓库、STATUS.md 与 Issues #1–#4、工作日摘要与 PR 监听
-- 进行中：MQTT 竖切（#1）、管理端暗色 UI（#3）、大屏壳（#2）
+对齐来源：农场仓库 [STATUS.md](https://github.com/lijiaaaaa-bot/mushroom-farm-platform/blob/main/STATUS.md)（2026-09-23，Asia/Shanghai）。本仓不改农场看板。Issue #4 由协调人在指挥台 PR 合并后关闭。
+
+- 已完成：harness day0 已抽出（[project-harness-day0](https://github.com/lijiaaaaa-bot/project-harness-day0)）；Day-1 硬墙 + HTTP 接入 + 告警确认冒烟；公开 GitHub；`bid-sample/`、`docs/`；PR #7 / #6 接入墙与 CI 门禁；Issue #1 / PR #5 MQTT 与 HTTP 同管道，ingest-smoke CI 与证据；Issue #2 / PR #10 `/big-screen` 五区页；Issue #3 / PR #19 管理端 devices、alerts、harvest、reports + vitest + Family B Light（浅色 farm-ops，不是暗色霓虹）；本指挥台 `status.json` 已对齐
+- 进行中：无
+- 规范：Overnight 指针 PR #18（不是待做切片）
+- 下一步：农场 STATUS 没有下一切片，等新 Issue
 - 硬阻塞：无。不要再写 GH_TOKEN / 公开仓库未创建
