@@ -4,35 +4,35 @@
     "slug": "mushroom-farm-platform",
     "name": "食用菌种植管理平台",
     "console": "蘑菇项目指挥台",
-    "phase": "仓库已公开",
-    "headline": "GitHub 公开仓库已上线，没有硬阻塞。正在做 MQTT 竖切和两块 UI。",
-    "next": "MQTT 竖切（#1，农场仓库 CloudAgent）、管理端暗色 UI（#3）、大屏壳（#2）。",
-    "updatedAt": "2026-09-23T10:50:00+08:00"
+    "phase": "看板已对齐",
+    "headline": "农场 STATUS（2026-09-23）无进行中项、无阻塞。MQTT（#1 / PR #5）、大屏五区（#2 / PR #10）、管理端 Family B Light（#3 / PR #19）都已关闭；本指挥台已按该看板对齐。",
+    "next": "农场 STATUS 没有下一切片，等新 Issue。",
+    "updatedAt": "2026-09-23T16:30:00+08:00"
   },
   "workstreams": [
     {
       "id": "bid-sample",
       "name": "招标样本",
       "status": "done",
-      "note": "样本已归档，范围冻结，只做对照。"
+      "note": "样本已归档在农场仓 bid-sample/，范围冻结，只做对照。"
     },
     {
       "id": "docs",
       "name": "计划/需求文档",
       "status": "done",
-      "note": "计划与需求已写完，开发按文档口径。"
+      "note": "计划与需求在农场仓 docs/，开发按文档口径。"
     },
     {
       "id": "architecture",
       "name": "架构硬墙",
       "status": "done",
-      "note": "大屏、API、MQTT 三层边界已写死。"
+      "note": "Day-1 硬墙已落地：大屏、业务 API、MQTT 接入三层分开。"
     },
     {
       "id": "scaffold",
       "name": "脚手架MVP",
       "status": "done",
-      "note": "脚手架、HTTP 接入和告警冒烟都已通过。"
+      "note": "脚手架、HTTP 接入和告警确认冒烟已通过。PR #7 合入接入墙，PR #6 关闭后 CI 门禁在 main。"
     },
     {
       "id": "github",
@@ -44,7 +44,7 @@
       "id": "status-board",
       "name": "STATUS 与 Issues",
       "status": "done",
-      "note": "STATUS.md 已在仓库，Issues #1–#4 已建板。"
+      "note": "农场看板是仓库根目录 STATUS.md。Issues #1、#2、#3 已关闭；#4 为本指挥台对齐，协调人在本 PR 合并后关闭。"
     },
     {
       "id": "routines",
@@ -55,20 +55,26 @@
     {
       "id": "mqtt",
       "name": "MQTT联调",
-      "status": "active",
-      "note": "竖切进行中（issue #1），由农场仓库的 CloudAgent 推进。"
+      "status": "done",
+      "note": "Issue #1 已关闭。PR #5 squash 合入 main（4dd50a1）：MQTT recognition 与 HTTP 同管道。ingest-smoke 跑 make smoke。"
     },
     {
       "id": "admin-ui",
-      "name": "管理端暗色UI",
-      "status": "active",
-      "note": "issue #3，暗色管理端还在打磨。"
+      "name": "管理端 Family B Light",
+      "status": "done",
+      "note": "Issue #3 已关闭。PR #19：devices/alerts/harvest/reports 接现有 API，vitest，Family B Light（浅底 farm-ops，不是暗色霓虹）。"
     },
     {
       "id": "dashboard-ui",
       "name": "大屏UI",
-      "status": "active",
-      "note": "issue #2，指挥大屏壳还没合完。"
+      "status": "done",
+      "note": "Issue #2 已关闭。PR #10：/big-screen 五区页（顶/左/中/右/底）接总览、棚区、告警、设备、识别列表 API。"
+    },
+    {
+      "id": "board-sync",
+      "name": "指挥台看板对齐",
+      "status": "done",
+      "note": "本仓 public/status.json 已按农场 STATUS（2026-09-23）对齐。Issue #4 由协调人在本 PR 合并后关闭。"
     }
   ],
   "blockers": [],
@@ -76,32 +82,57 @@
     {
       "label": "平台公开仓库",
       "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform",
-      "note": "已公开。脚手架、HTTP 接入、告警冒烟都在这里。"
+      "note": "已公开。main 上有脚手架、HTTP 接入、告警冒烟、MQTT、大屏和管理端。"
     },
     {
       "label": "STATUS.md",
       "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/blob/main/STATUS.md",
-      "note": "平台仓库里的状态说明。"
+      "note": "农场看板真源，文件在仓库根目录 STATUS.md。2026-09-23：进行中无，阻塞无。"
     },
     {
       "label": "Issues 看板",
       "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues",
-      "note": "#1–#4 已建。#1 MQTT，#2 大屏壳，#3 管理端，#4 本指挥台。"
+      "note": "#1 MQTT、#2 大屏、#3 管理端已关闭。#4 为本指挥台对齐，待协调人关闭。"
     },
     {
-      "label": "MQTT 竖切 #1",
+      "label": "MQTT #1",
       "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues/1",
-      "note": "进行中。农场仓库上的 CloudAgent 在做这一刀。"
+      "note": "已关闭。PR #5 squash 至 main 4dd50a1，识别与 HTTP 同管道。"
     },
     {
-      "label": "大屏壳 #2",
+      "label": "MQTT PR #5",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/pull/5",
+      "note": "已合并。MQTT recognition 与 HTTP 同管道。"
+    },
+    {
+      "label": "大屏 #2",
       "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues/2",
-      "note": "待开。指挥大屏壳，要能演示。"
+      "note": "已关闭。/big-screen 五区页由 PR #10 交付。"
     },
     {
-      "label": "管理端暗色 UI #3",
+      "label": "大屏 PR #10",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/pull/10",
+      "note": "已合并。五区页接总览、棚区、告警、设备、识别列表 API。"
+    },
+    {
+      "label": "管理端 Family B Light #3",
       "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/issues/3",
-      "note": "待开。管理端暗色界面打磨。"
+      "note": "已关闭。四页接 API，浅色 farm-ops，不是暗色霓虹。PR #19。"
+    },
+    {
+      "label": "管理端 PR #19",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/pull/19",
+      "note": "已合并。devices/alerts/harvest/reports + vitest + Family B Light。"
+    },
+    {
+      "label": "harness day0",
+      "href": "https://github.com/lijiaaaaa-bot/project-harness-day0",
+      "note": "已从农场仓抽出。Overnight 协议在该仓 docs/OVERNIGHT.md。"
+    },
+    {
+      "label": "Overnight 指针 PR #18",
+      "href": "https://github.com/lijiaaaaa-bot/mushroom-farm-platform/pull/18",
+      "note": "规范，不是待做切片。农场仓指针 docs/OVERNIGHT_TICKET.md。"
     },
     {
       "label": "进度真源",
@@ -111,7 +142,7 @@
     {
       "label": "状态更新说明",
       "href": "README.md",
-      "note": "本仓库。agent 改进度前先看这一节。"
+      "note": "本仓库。agent 改进度前先看这一节。字段名以 src/data/types.ts 为准。"
     }
   ],
   "checklist": [
@@ -154,8 +185,8 @@
     {
       "id": "d1-mqtt-names",
       "day": "Day-1",
-      "text": "MQTT 接入竖切（issue #1）尚未收口",
-      "done": false
+      "text": "MQTT 接入已收口：Issue #1 已关闭，PR #5 合入，识别与 HTTP 同管道",
+      "done": true
     },
     {
       "id": "d1-public-repo",
@@ -166,8 +197,20 @@
     {
       "id": "d1-screen-ia",
       "day": "Day-1",
-      "text": "大屏壳（issue #2）尚未完成",
-      "done": false
+      "text": "大屏五区页已完成：Issue #2 已关闭，PR #10 合入 /big-screen",
+      "done": true
+    },
+    {
+      "id": "d1-admin-light",
+      "day": "Day-1",
+      "text": "管理端四页已接 API，Family B Light：Issue #3 已关闭，PR #19",
+      "done": true
+    },
+    {
+      "id": "d1-board-sync",
+      "day": "Day-1",
+      "text": "指挥台 status.json 已按农场 STATUS.md（2026-09-23）对齐",
+      "done": true
     }
   ]
 }
