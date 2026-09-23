@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Noto Sans SC Variable', 'PingFang SC', 'Noto Sans SC', 'Microsoft YaHei',
+    sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --color-canvas: #0e1211;
+  --color-panel: #161c1a;
+  --color-raised: #1d2623;
+  --color-line: #31403a;
+  --color-ink: #f3efe4;
+  --color-muted: #b7c0b6;
+  --color-faint: #8d998f;
+  --color-brass: #e0c09a;
+  --color-moss: #9dcc96;
+  --color-amber: #e4b55c;
+  --color-coral: #ef8b72;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background-color: var(--color-canvas);
+  background-image:
+    radial-gradient(ellipse 70% 40% at 0% -10%, rgb(224 192 154 / 0.09), transparent 55%),
+    linear-gradient(rgb(243 239 228 / 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(243 239 228 / 0.025) 1px, transparent 1px);
+  background-size: auto, 28px 28px, 28px 28px;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgb(224 192 154 / 0.28);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

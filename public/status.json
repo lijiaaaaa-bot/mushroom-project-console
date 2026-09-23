@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "project": {
+    "slug": "mushroom-farm-platform",
+    "name": "食用菌种植管理平台",
+    "console": "蘑菇项目指挥台",
+    "phase": "Day-1",
+    "headline": "文档和脚手架已经落地，卡在 GitHub 公开推送。",
+    "next": "准备 GH_TOKEN，或先创建 public repo，再推送平台仓库。",
+    "updatedAt": "2026-09-23T10:30:00+08:00"
+  },
+  "workstreams": [
+    {
+      "id": "bid-sample",
+      "name": "招标样本",
+      "status": "done",
+      "note": "样本已归档，范围冻结，只做对照。"
+    },
+    {
+      "id": "docs",
+      "name": "计划/需求文档",
+      "status": "done",
+      "note": "计划与需求已写完，开发按文档口径。"
+    },
+    {
+      "id": "architecture",
+      "name": "架构硬墙",
+      "status": "done",
+      "note": "大屏、API、MQTT 三层边界已写死。"
+    },
+    {
+      "id": "scaffold",
+      "name": "脚手架MVP",
+      "status": "done",
+      "note": "本地骨架可运行，本指挥台是当前入口。"
+    },
+    {
+      "id": "github",
+      "name": "GitHub公开推送",
+      "status": "blocked",
+      "note": "缺 GH_TOKEN，公开仓库还没建。"
+    },
+    {
+      "id": "dashboard-ui",
+      "name": "大屏UI",
+      "status": "active",
+      "note": "页面未开工，信息架构还在清单里。"
+    },
+    {
+      "id": "mqtt",
+      "name": "MQTT联调",
+      "status": "active",
+      "note": "Topic 已起草，还没有 broker 环境。"
+    }
+  ],
+  "blockers": [
+    {
+      "id": "github-push",
+      "title": "GitHub 推送需要 GH_TOKEN / 公开仓库",
+      "detail": "公开推送停在这一步。把 GH_TOKEN 配到环境，或先创建 public repo，再推。不要把令牌写进仓库。",
+      "since": "2026-09-23"
+    }
+  ],
+  "links": [
+    {
+      "label": "状态更新说明",
+      "href": "README.md",
+      "note": "本仓库。agent 改进度前先看这一节。"
+    },
+    {
+      "label": "进度真源",
+      "href": "public/status.json",
+      "note": "本仓库。只改这个文件，然后重新读取。"
+    },
+    {
+      "label": "计划 / 需求文档",
+      "href": "docs/requirements.md",
+      "note": "平台仓库路径。文档已完成，这里只作入口。"
+    },
+    {
+      "label": "架构硬墙",
+      "href": "docs/architecture.md",
+      "note": "平台仓库路径。分层和禁止项以该文档为准。"
+    },
+    {
+      "label": "Cloud Agent",
+      "href": "https://cursor.com/agents/placeholder",
+      "note": "占位链接。换成这次构建任务的 agent 地址。"
+    }
+  ],
+  "checklist": [
+    {
+      "id": "d0-boundary",
+      "day": "Day-0",
+      "text": "产品边界：种植管理（菇房、批次、环境、告警），不含交易",
+      "done": true
+    },
+    {
+      "id": "d0-layers",
+      "day": "Day-0",
+      "text": "技术硬墙：大屏、业务 API、MQTT 接入三层分开",
+      "done": true
+    },
+    {
+      "id": "d0-metrics",
+      "day": "Day-0",
+      "text": "指标口径：温度、湿度、二氧化碳、光照",
+      "done": true
+    },
+    {
+      "id": "d0-secrets",
+      "day": "Day-0",
+      "text": "密钥策略：GH_TOKEN 只放环境变量，不进 Git",
+      "done": true
+    },
+    {
+      "id": "d1-scaffold",
+      "day": "Day-1",
+      "text": "脚手架可用 package scripts 在本地启动",
+      "done": true
+    },
+    {
+      "id": "d1-status",
+      "day": "Day-1",
+      "text": "进度真源是 status.json，页面不写死状态",
+      "done": true
+    },
+    {
+      "id": "d1-mqtt-names",
+      "day": "Day-1",
+      "text": "MQTT topic 命名写成文字，本阶段不联机",
+      "done": true
+    },
+    {
+      "id": "d1-public-repo",
+      "day": "Day-1",
+      "text": "公开 GitHub 仓库已建立并可推送",
+      "done": false
+    },
+    {
+      "id": "d1-screen-ia",
+      "day": "Day-1",
+      "text": "大屏信息架构四块：总览、菇房、批次、告警",
+      "done": false
+    }
+  ]
+}
