@@ -42,22 +42,23 @@ defineEmits<{ reload: [] }>()
     <p class="mt-3 max-w-3xl text-base leading-7 text-ink sm:text-lg">{{ project.headline }}</p>
     <p class="mt-1 max-w-3xl text-sm leading-6 text-muted">下一步：{{ project.next }}</p>
 
-    <div class="mt-5 grid grid-cols-3 gap-2 sm:max-w-md">
-      <div class="rounded-md border border-line bg-panel px-3 py-2">
-        <p class="text-[11px] text-muted">已完成</p>
-        <p class="mt-1 font-mono text-xl text-moss tabular-nums">{{ summary.counts.done }}</p>
+    <div class="mt-5 sm:max-w-md">
+      <div class="grid grid-cols-3 gap-2">
+        <div class="rounded-md border border-line bg-panel px-3 py-2">
+          <p class="text-[11px] text-muted">已完成</p>
+          <p class="mt-1 font-mono text-xl text-moss tabular-nums">{{ summary.counts.done }}</p>
+        </div>
+        <div class="rounded-md border border-line bg-panel px-3 py-2">
+          <p class="text-[11px] text-muted">进行中</p>
+          <p class="mt-1 font-mono text-xl text-amber tabular-nums">{{ summary.counts.active }}</p>
+        </div>
+        <div class="rounded-md border border-line bg-panel px-3 py-2">
+          <p class="text-[11px] text-muted">阻塞</p>
+          <p class="mt-1 font-mono text-xl text-coral tabular-nums">{{ summary.counts.blocked }}</p>
+        </div>
       </div>
-      <div class="rounded-md border border-line bg-panel px-3 py-2">
-        <p class="text-[11px] text-muted">进行中</p>
-        <p class="mt-1 font-mono text-xl text-amber tabular-nums">{{ summary.counts.active }}</p>
-      </div>
-      <div class="rounded-md border border-line bg-panel px-3 py-2">
-        <p class="text-[11px] text-muted">阻塞</p>
-        <p class="mt-1 font-mono text-xl text-coral tabular-nums">{{ summary.counts.blocked }}</p>
-      </div>
-    </div>
 
-    <div class="mt-4 flex gap-1" aria-hidden="true">
+      <div class="mt-3 flex gap-1" aria-hidden="true">
       <span
         v-for="(item, index) in workstreams"
         :key="item.id"
@@ -69,6 +70,7 @@ defineEmits<{ reload: [] }>()
         }"
         :title="`${padIndex(index)} ${item.name}`"
       />
+      </div>
     </div>
     <p class="mt-2 font-mono text-[11px] text-faint">
       台账更新 {{ formatUpdatedAt(project.updatedAt) }} · {{ summary.counts.done }}/{{
